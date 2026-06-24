@@ -1,1 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timeland Relógios e Joias</title>
+  <!-- Bootstrap 5 + ícones -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Favicon em SVG (embutido) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⌚</text></svg>">
+  <style>
+    body {
+      background-color: #f8f7f4;
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+    .navbar-brand {
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    .bg-timeland {
+      background-color: #1a2a3a;
+    }
+    .text-gold {
+      color: #d4af37;
+    }
+    .bg-gold-soft {
+      background-color: #faf3e0;
+    }
+    .btn-outline-gold {
+      color: #d4af37;
+      border-color: #d4af37;
+    }
+    .btn-outline-gold:hover {
+      background-color: #d4af37;
+      color: #1a2a3a;
+      border-color: #d4af37;
+    }
+    .btn-gold {
+      background-color: #d4af37;
+      border-color: #d4af37;
+      color: #1a2a3a;
+      font-weight: 500;
+    }
+    .btn-gold:hover {
+      background-color: #c19b2e;
+      border-color: #c19b2e;
+      color: #1a2a3a;
+    }
+    .hero-section {
+      background: linear-gradient(135deg, #1a2a3a 0%, #2c4055 100%);
+      color: white;
+      padding: 4rem 0 3rem;
+      border-bottom: 4px solid #d4af37;
+    }
+    .hero-section h1 {
+      font-weight: 300;
+      letter-spacing: 1px;
+    }
+    .hero-section h1 span {
+      font-weight: 600;
+      color: #d4af37;
+    }
+    .info-card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+      transition: all 0.2s;
+      height: 100%;
+      border-left: 4px solid #d4af37;
+    }
+    .info-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+    }
+    .icon-circle {
+      width: 56px;
+      height: 56px;
+      background: #faf3e0;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1a2a3a;
+      font-size: 1.8rem;
+    }
+    .feature-icon {
+      font-size: 2.2rem;
+      color: #d4af37;
+    }
+    .footer {
+      background-color: #1a2a3a;
+      color: #ddd;
+      border-top: 3px solid #d4af37;
+    }
+    .footer a {
+      color: #d4af37;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      color: #f5d97e;
+      text-decoration: underline;
+    }
+    .section-title {
+      position: relative;
+      display: inline-block;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 60px;
+      height: 3px;
+      background: #d4af37;
+    }
+    .border-gold {
+      border-color: #d4af37 !important;
+    }
+    .list-unstyled i {
+      color: #d4af37;
+      margin-right: 8px;
+    }
+    .tagline {
+      font-size: 1.15rem;
+      font-weight: 300;
+      color: #e0dcd3;
+    }
+    .address-block {
+      background: white;
+      border-radius: 20px;
+      padding: 1.8rem 2rem;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+    }
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 100;
+      background-color: #25d366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+      transition: 0.2s;
+      text-decoration: none;
+    }
+    .whatsapp-float:hover {
+      background-color: #1ebc5a;
+      color: white;
+      transform: scale(1.05);
+    }
+    @media (max-width: 576px) {
+      .hero-section {
+        padding: 2.5rem 0 2rem;
+      }
+      .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        font-size: 1.6rem;
+        bottom: 20px;
+        right: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- WhatsApp flutuante (ícone) -->
+  <a href="#" class="whatsapp-float" target="_blank" aria-label="Fale conosco pelo WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+  </a>
 
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-timeland shadow-sm py-2">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <i class="bi bi-clock-history me-2 text-gold"></i>Timeland
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" 
+              aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+          <li class="nav-item"><a class="nav-link active" href="#"><i class="bi bi-house-door me-1"></i>Início</a></li>
+          <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-grid-3x3-gap-fill me-1"></i>Produtos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-tags me-1"></i>Ofertas</a></li>
+          <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-geo-alt me-1"></i>Localização</a></li>
+          <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-envelope me-1"></i>Contato</a></li>
+          <li class="nav-item ms-lg-2">
+            <a class="btn btn-outline-gold btn-sm rounded-pill px-3" href="#"><i class="bi bi-cart3 me-1"></i>Loja</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-8">
+          <h1 class="display-4 fw-light">Precisão & Elegância <br><span>Timeland Relógios e Joias</span></h1>
+          <p class="tagline lead mt-3">
+            <i class="bi bi-gem me-2 text-gold"></i> Desde 2019, oferecendo o melhor em relojoaria e joias finas.
+          </p>
+          <div class="d-flex flex-wrap gap-3 mt-4">
+            <a href="#" class="btn btn-gold rounded-pill px-4 py-2"><i class="bi bi-eye me-2"></i>Ver Coleção</a>
+            <a href="#" class="btn btn-outline-light rounded-pill px-4 py-2 border-2"><i class="bi bi-clock me-2"></i>Relógios</a>
+          </div>
+        </div>
+        <div class="col-lg-4 text-lg-end text-center">
+          <div class="bg-gold-soft rounded-4 p-4 d-inline-block shadow">
+            <i class="bi bi-clock display-1 text-gold"></i>
+            <p class="mb-0 fw-bold text-dark">Tempo é estilo</p>
+            <small class="text-muted">Desde 2019</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Destaques / Frases + ícones -->
+  <section class="container py-5">
+    <div class="row text-center g-4">
+      <div class="col-md-4">
+        <div class="info-card p-4 d-flex flex-column align-items-center">
+          <div class="icon-circle mb-3"><i class="bi bi-award"></i></div>
+          <h5 class="fw-bold">Qualidade Garantida</h5>
+          <p class="text-muted small">Peças originais com procedência e certificação.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="info-card p-4 d-flex flex-column align-items-center">
+          <div class="icon-circle mb-3"><i class="bi bi-shield-check"></i></div>
+          <h5 class="fw-bold">Confiança e Tradição</h5>
+          <p class="text-muted small">Mais de 5 anos de credibilidade no mercado.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="info-card p-4 d-flex flex-column align-items-center">
+          <div class="icon-circle mb-3"><i class="bi bi-truck"></i></div>
+          <h5 class="fw-bold">Entrega Segura</h5>
+          <p class="text-muted small">Enviamos para todo o Brasil com total rastreio.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Informações da empresa + CNPJ etc -->
+  <section class="container py-4">
+    <div class="row g-4 align-items-stretch">
+      <div class="col-lg-6">
+        <div class="address-block h-100">
+          <h4 class="section-title mb-4"><i class="bi bi-building me-2 text-gold"></i>Nossa empresa</h4>
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="bi bi-cnpj"></i> <strong>CNPJ:</strong> 35.239.745/0001-92</li>
+            <li class="mb-2"><i class="bi bi-file-text"></i> <strong>Razão Social:</strong> Timeland Relogios e Joias LTDA</li>
+            <li class="mb-2"><i class="bi bi-tag"></i> <strong>Nome Fantasia:</strong> Timeland Relogios e Joias LTDA</li>
+            <li class="mb-2"><i class="bi bi-calendar-check"></i> <strong>Data Situação Cadastral:</strong> 18/10/2019</li>
+            <li class="mb-2"><i class="bi bi-geo-alt"></i> <strong>Endereço:</strong> Rua Margarida, 85 - Barra Funda, São Paulo - SP, 01154-030</li>
+            <li><i class="bi bi-telephone"></i> <strong>Telefone:</strong> (11) 3664-4599</li>
+          </ul>
+          <div class="mt-3 d-flex gap-2 flex-wrap">
+            <span class="badge bg-timeland text-gold border border-gold px-3 py-2"><i class="bi bi-clock me-1"></i> Seg-Sex: 9h-18h</span>
+            <span class="badge bg-timeland text-gold border border-gold px-3 py-2"><i class="bi bi-clock me-1"></i> Sáb: 9h-13h</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="address-block h-100">
+          <h4 class="section-title mb-4"><i class="bi bi-geo-alt me-2 text-gold"></i>Localização</h4>
+          <div class="ratio ratio-16x9 rounded-3 overflow-hidden">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.123456789012!2d-46.6789!3d-23.5678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDM0JzA0LjAiUyA0NsKwNDAnNDIuMCJX!5e0!3m2!1spt-BR!2sbr!4v1616161616161" 
+                    style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <p class="mt-2 text-muted small"><i class="bi bi-pin-map text-gold"></i> Rua Margarida, 85 – Barra Funda, SP</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Frases e ícones extras (vitrine) -->
+  <section class="container py-5">
+    <div class="row align-items-center bg-gold-soft rounded-4 p-4 p-lg-5 shadow-sm">
+      <div class="col-md-8">
+        <h3 class="fw-light"><i class="bi bi-chat-quote me-2 text-gold"></i> “A elegância está nos detalhes, e o tempo é o seu melhor acessório.”</h3>
+        <p class="text-muted mb-0">Timeland – onde cada segundo conta com sofisticação.</p>
+      </div>
+      <div class="col-md-4 text-md-end mt-3 mt-md-0">
+        <i class="bi bi-diamond fs-1 text-gold me-2"></i>
+        <i class="bi bi-clock fs-1 text-gold me-2"></i>
+        <i class="bi bi-gem fs-1 text-gold"></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé completo -->
+  <footer class="footer pt-5 pb-4">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <h5 class="text-gold"><i class="bi bi-clock-history me-2"></i>Timeland</h5>
+          <p class="small">Relógios e Joias com excelência desde 2019. Peças selecionadas para quem valoriza o tempo e o estilo.</p>
+          <div>
+            <a href="#" class="me-2 text-gold"><i class="bi bi-instagram fs-5"></i></a>
+            <a href="#" class="me-2 text-gold"><i class="bi bi-facebook fs-5"></i></a>
+            <a href="#" class="me-2 text-gold"><i class="bi bi-youtube fs-5"></i></a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <h6 class="text-gold">Contato</h6>
+          <ul class="list-unstyled small">
+            <li><i class="bi bi-telephone-fill me-2"></i>(11) 3664-4599</li>
+            <li><i class="bi bi-envelope-fill me-2"></i>contato@timeland.com.br</li>
+            <li><i class="bi bi-geo-alt-fill me-2"></i>Rua Margarida, 85 - Barra Funda, SP</li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h6 class="text-gold">Horário de Funcionamento</h6>
+          <ul class="list-unstyled small">
+            <li><i class="bi bi-clock me-2"></i>Segunda a Sexta: 9h – 18h</li>
+            <li><i class="bi bi-clock me-2"></i>Sábado: 9h – 13h</li>
+            <li><i class="bi bi-clock me-2"></i>Domingo: Fechado</li>
+          </ul>
+          <p class="small mt-2"><i class="bi bi-cnpj me-1"></i> CNPJ: 35.239.745/0001-92</p>
+        </div>
+      </div>
+      <hr class="border-gold opacity-25">
+      <div class="text-center small text-muted">
+        © 2026 Timeland Relógios e Joias LTDA – Todos os direitos reservados.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
